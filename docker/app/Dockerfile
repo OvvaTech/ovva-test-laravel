@@ -29,5 +29,5 @@ RUN pecl install xdebug
 
 COPY ./docker/app/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
-WORKDIR /var/www/laravel.test.api
+WORKDIR /var/www/test.api.laravel
 

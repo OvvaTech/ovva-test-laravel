@@ -7,7 +7,7 @@ services:
             context: .
             dockerfile: /docker/app/Dockerfile
         volumes:
-            - ./:/var/www/laravel.test.api
+            - ./:/var/www/test.api.laravel
         extra_hosts:
             - host.docker.internal:host-gateway
         depends_on:
@@ -17,7 +17,7 @@ services:
     nginx:
         image: nginx:latest
         volumes:
-            - ./:/var/www/laravel.test.api
+            - ./:/var/www/test.api.laravel
             - ./docker/nginx:/etc/nginx/conf.d
         ports:
             - 8098:80
@@ -40,8 +40,8 @@ services:
     node:
         image: node:lts
         volumes:
-            - ./:/var/www/laravel.test.api
+            - ./:/var/www/test.api.laravel
             - ./node_modules:/usr/src/node_modules
-        working_dir: /var/www/laravel.test.api
+        working_dir: /var/www/test.api.laravel
         tty: true
         container_name: npm
