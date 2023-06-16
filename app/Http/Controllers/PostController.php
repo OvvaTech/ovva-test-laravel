@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Services\PostService;
+use Illuminate\Routing\Controller;
 
-class PostController extends BaseController
+class PostController extends Controller
 {
+    private PostService $postService;
+
+    public function __construct()
+    {
+        $this->postService = new PostService();
+    }
+
     public function index()
     {
         //

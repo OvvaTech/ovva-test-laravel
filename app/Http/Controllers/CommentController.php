@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Services\CommentService;
+use Illuminate\Routing\Controller;
 
-class CommentController extends BaseController
+class CommentController extends Controller
 {
+    private CommentService $commentService;
+
+    public function __construct()
+    {
+        $this->commentService = new CommentService();
+    }
+
     public function index()
     {
         //
