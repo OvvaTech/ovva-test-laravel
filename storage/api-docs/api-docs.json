@@ -1,0 +1,53 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Doc",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/posts": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Get all posts",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "title": {
+                                            "type": "string",
+                                            "example": "Some title"
+                                        },
+                                        "content": {
+                                            "type": "string",
+                                            "example": "Some content"
+                                        },
+                                        "created_at": {
+                                            "type": "timestamp",
+                                            "example": "2023-06-17T18:31:55.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "timestamp",
+                                            "example": "2023-06-17T18:31:55.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
