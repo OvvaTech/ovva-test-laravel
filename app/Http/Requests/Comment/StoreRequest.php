@@ -22,7 +22,6 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|int',
             'post_id' => 'required|unsignedBigInteger',
             'author' => 'required|string',
             'text' => 'required|string'
