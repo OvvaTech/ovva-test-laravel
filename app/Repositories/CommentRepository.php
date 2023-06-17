@@ -38,19 +38,15 @@ class CommentRepository
         return response()->json(['message' => 'Post not found']);
     }
 
-    public function update($request, $id)
+    public function update($request, $comment)
     {
-        $comment = Comment::find($id);
+        $comment->update($request);
 
-        $comment->post_id = $request->post_id;
-        $comment->author = $request->author;
-        $comment->text = $request->text;
-
-        $comment->save();
+        $comment->fresh();
     }
 
-    public function delete($id)
+    public function delete($comment)
     {
-        Comment::destroy($id);
+        $comment->delete();
     }
 }

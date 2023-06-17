@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Comment\StoreRequest;
 use App\Http\Requests\Comment\UpdateRequest;
+use App\Models\Comment;
 use App\Services\CommentService;
 use Illuminate\Routing\Controller;
 
@@ -20,14 +21,18 @@ class CommentController extends Controller
     {
         $comments = $this->commentService->getAll();
 
-        return view('welcome', compact('comments'));
+        return response()->json([
+           'comments' => $comments
+        ]);
     }
 
-    public function show($id)
+    public function show(Comment $comment)
     {
-        $comment = $this->commentService->getOne($id);
+        $comment = $this->commentService->getOne($comment);
 
-        return view('welcome', compact('comment'));
+        return response()->json([
+           'comment' => $comment
+        ]);
     }
 
     public function store(StoreRequest $request)
@@ -37,15 +42,15 @@ class CommentController extends Controller
         $this->commentService->create($request);
     }
 
-    public function update(UpdateRequest $request, $id)
+    public function update(UpdateRequest $request, Comment $comment)
     {
         $request->validated();
 
-        $this->commentService->update($request, $id);
+        $this->commentService->update($request, $comment);
     }
 
-    public function destroy($id)
+    public function destroy($comment)
     {
-        $this->commentService->delete($id);
+        $this->commentService->delete($comment);
     }
 }

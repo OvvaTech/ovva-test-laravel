@@ -8,16 +8,16 @@ class PostRepository
 {
     public function getAll()
     {
-        $posts = Post::paginate(15);
+        $posts = Post::paginate(10);
 
         response()->json([
             'posts' => $posts
         ]);
     }
 
-    public function getOne($id)
+    public function getOne($post)
     {
-        $post = Post::find($id);
+        $post = Post::find($post);
 
         return response()->json([
             'post' => $post
@@ -32,18 +32,15 @@ class PostRepository
         ]);
     }
 
-    public function update($request, $id)
+    public function update($request, $post)
     {
-        $post = Post::find($id);
+        $post->update($request);
 
-        $post->title = $request->title;
-        $post->content = $request->content;
-
-        $post->save();
+        $post->fresh();
     }
 
-    public function delete($id)
+    public function delete($post)
     {
-        Post::destroy($id);
+        $post->delete();
     }
 }

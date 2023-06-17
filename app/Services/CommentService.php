@@ -22,9 +22,9 @@ class CommentService
         ]);
     }
 
-    public function getOne($id)
+    public function getOne($comment)
     {
-        $comment = $this->commentRepository->getOne($id);
+        $comment = $this->commentRepository->getOne($comment);
 
         return response()->json([
             'comment' => $comment
@@ -36,13 +36,13 @@ class CommentService
         $this->commentRepository->create($request);
     }
 
-    public function update($request, $id)
+    public function update($request, $comment)
     {
-        $this->commentRepository->update($request, $id);
+        $this->commentRepository->update($request, $comment);
     }
 
-    public function delete($id)
+    public function delete($comment)
     {
-        $this->commentRepository->delete($id);
+        $this->commentRepository->delete($comment);
     }
 }

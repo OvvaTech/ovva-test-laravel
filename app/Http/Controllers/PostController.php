@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Post\StoreRequest;
 use App\Http\Requests\Post\UpdateRequest;
+use App\Models\Post;
 use App\Services\PostService;
 use Illuminate\Routing\Controller;
 
@@ -20,14 +21,18 @@ class PostController extends Controller
     {
         $posts = $this->postService->getAll();
 
-        return view('welcome', compact('posts'));
+        return response()->json([
+           'posts' => $posts
+        ]);
     }
 
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = $this->postService->getOne($id);
+        $post = $this->postService->getOne($post);
 
-        return view('welcome', compact('post'));
+        return response()->json([
+           'post' => $post
+        ]);
     }
 
     public function store(StoreRequest $request)
@@ -37,15 +42,15 @@ class PostController extends Controller
         $this->postService->create($request);
     }
 
-    public function update(UpdateRequest $request, $id)
+    public function update(UpdateRequest $request, Post $post)
     {
         $request->validated();
 
-        $this->postService->update($request, $id);
+        $this->postService->update($request, $post);
     }
 
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $this->postService->delete($id);
+        $this->postService->delete($post);
     }
 }

@@ -22,9 +22,9 @@ class PostService
         ]);
     }
 
-    public function getOne($id)
+    public function getOne($post)
     {
-        $post = $this->postRepository->getOne($id);
+        $post = $this->postRepository->getOne($post);
 
         return response()->json([
             'post' => $post
@@ -36,13 +36,13 @@ class PostService
         $this->postRepository->create($request);
     }
 
-    public function update($request, $id)
+    public function update($request, $post)
     {
-        $this->postRepository->update($request, $id);
+        $this->postRepository->update($request, $post);
     }
 
-    public function delete($id)
+    public function delete($post)
     {
-        $this->postRepository->delete($id);
+        $this->postRepository->delete($post);
     }
 }
