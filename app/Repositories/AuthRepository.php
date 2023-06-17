@@ -16,19 +16,4 @@ class AuthRepository
             'password' => Hash::make($request->password)
         ]);
     }
-
-    public function login($credentials)
-    {
-        if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            $token = $user->createToken('authToken')->plainTextToken;
-
-            return response()->json([
-                'access_token' => $token,
-                'token_type' => 'Bearer',
-            ]);
-        }
-
-        return response()->json(['message' => 'Unauthorized'], 401);
-    }
 }

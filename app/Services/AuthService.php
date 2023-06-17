@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\AuthRepository;
+use Illuminate\Support\Facades\Auth;
 
 class AuthService
 {
@@ -20,6 +21,16 @@ class AuthService
 
     public function login($credentials)
     {
-        $this->authRepository->login($credentials);
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            $token = $user->createToken('authToken')->plainTextToken;
+
+            return response()->json([
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+            ]);
+        }
+
+        return response()->json(['message' => 'Unauthorized'], 401);
     }
 }
