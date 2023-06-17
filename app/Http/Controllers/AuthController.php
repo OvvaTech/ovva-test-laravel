@@ -37,7 +37,7 @@ class AuthController extends Controller
 
     public function logout()
     {
-        Auth::guard('api')->logout();
+        $this->authService->logout();
 
         return view('welcome');
     }

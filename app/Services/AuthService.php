@@ -33,4 +33,9 @@ class AuthService
 
         return response()->json(['message' => 'Unauthorized'], 401);
     }
+
+    public function logout()
+    {
+        Auth::guard('api')->logout();
+    }
 }
