@@ -12,6 +12,6 @@ class Post extends Model
     protected $fillable = [
         'title',
         'content',
-        'create_at'
+        'created_at'
     ];
 }
