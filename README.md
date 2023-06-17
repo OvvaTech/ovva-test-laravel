@@ -10,11 +10,7 @@
 ## How to run this project?
 
 1. Download and Install [Docker](https://docs.docker.com/engine/install/).
-2. At the command prompt run:
-   ```bash
-   docker-compose up -d
-   ```
-3. Create a copy of the .env file and set these values:
+2. Create a copy of the .env file and set these values:
    ```bash
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
@@ -22,6 +18,10 @@
    DB_DATABASE=laravel_db
    DB_USERNAME=root
    DB_PASSWORD=root
+   ```
+3. Open the command prompt, go to the directory with the project and run:
+   ```bash
+   docker-compose up -d
    ```
 4. Go to the app container and run:
    ```bash
