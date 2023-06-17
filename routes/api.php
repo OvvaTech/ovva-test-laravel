@@ -31,6 +31,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('auth.regist
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum')->name('auth.logout');
 
+// API Routes
 Route::middleware('auth:sanctum')->group(function (){
     // Post Routes
     Route::get('/posts', [PostController::class , 'index'])->name('posts.index');
