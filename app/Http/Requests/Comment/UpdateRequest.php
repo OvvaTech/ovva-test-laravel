@@ -23,7 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'id' => 'required|int',
-            'post_id' => 'required|int',
+            'post_id' => 'required|unsignedBitInteger',
             'author' => 'required|string',
             'text' => 'required|string'
         ];
