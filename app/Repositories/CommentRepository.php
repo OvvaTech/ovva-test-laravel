@@ -35,7 +35,7 @@ class CommentRepository
             ]);
         }
 
-        return response()->json(['message' => 'Post not found'], 401);
+        return response()->json(['message' => 'Post not found']);
     }
 
     public function update($request, $id)
