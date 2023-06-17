@@ -17,14 +17,18 @@ class CommentService
     {
         $comments = $this->commentRepository->getAll();
 
-        return compact('comments');
+        return response()->json([
+            'comments' => $comments
+        ]);
     }
 
     public function getOne($id)
     {
         $comment = $this->commentRepository->getOne($id);
 
-        return compact('comment');
+        return response()->json([
+            'comment' => $comment
+        ]);
     }
 
     public function create($request)

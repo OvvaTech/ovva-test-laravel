@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Comment;
+use App\Models\Post;
 
 class CommentRepository
 {
@@ -10,23 +11,31 @@ class CommentRepository
     {
         $comments = Comment::all();
 
-        return compact('comments');
+        return response()->json([
+            'comments' => $comments
+        ]);
     }
 
     public function getOne($id)
     {
         $comment = Comment::find($id);
 
-        return compact('comment');
+        return response()->json([
+            'comment' => $comment
+        ]);
     }
 
     public function create($request)
     {
-        Comment::create([
-            'post_id' => $request->post_id,
-            'author' => $request->author,
-            'text' => $request->text
-        ]);
+        if (Post::find($request->post_id)) {
+            Comment::create([
+                'post_id' => $request->post_id,
+                'author' => $request->author,
+                'text' => $request->text
+            ]);
+        }
+
+        return response()->json(['message' => 'Post not found'], 401);
     }
 
     public function update($request, $id)

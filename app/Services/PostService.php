@@ -17,14 +17,18 @@ class PostService
     {
         $posts = $this->postRepository->getAll();
 
-        return compact('posts');
+        return response()->json([
+            'posts' => $posts
+        ]);
     }
 
     public function getOne($id)
     {
         $post = $this->postRepository->getOne($id);
 
-        return compact('post');
+        return response()->json([
+            'post' => $post
+        ]);
     }
 
     public function create($request)

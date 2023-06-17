@@ -10,14 +10,18 @@ class PostRepository
     {
         $posts = Post::paginate(15);
 
-        return compact('posts');
+        response()->json([
+            'posts' => $posts
+        ]);
     }
 
     public function getOne($id)
     {
         $post = Post::find($id);
 
-        return compact('post');
+        return response()->json([
+            'post' => $post
+        ]);
     }
 
     public function create($request)
