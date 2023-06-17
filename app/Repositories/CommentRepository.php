@@ -34,8 +34,6 @@ class CommentRepository
                 'text' => $request->text
             ]);
         }
-
-        return response()->json(['message' => 'Post not found']);
     }
 
     public function update($request, $comment)

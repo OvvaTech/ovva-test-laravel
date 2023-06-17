@@ -22,17 +22,17 @@ class AuthController extends Controller
         $request->validated();
 
         $this->authService->register($request);
-
-        return view('welcome');
     }
 
     public function login(LoginRequest $request)
     {
         $credentials = $request->validated();
 
-        $this->authService->login($credentials);
+        $data = $this->authService->login($credentials);
 
-        return view('welcome');
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
     public function logout()
