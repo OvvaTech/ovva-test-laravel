@@ -8,7 +8,7 @@ class PostRepository
 {
     public function getAll()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(15);
 
         return compact('posts');
     }

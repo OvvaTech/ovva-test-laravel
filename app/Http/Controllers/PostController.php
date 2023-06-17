@@ -20,14 +20,14 @@ class PostController extends Controller
     {
         $posts = $this->postService->getAll();
 
-        return view('', compact('posts'));
+        return view('welcome', compact('posts'));
     }
 
     public function show($id)
     {
         $post = $this->postService->getOne($id);
 
-        return view('', compact('post'));
+        return view('welcome', compact('post'));
     }
 
     public function store(StoreRequest $request)

@@ -13,7 +13,7 @@
 2. Create a copy of the .env file and set these values:
    ```bash
    DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
+   DB_HOST=mysql
    DB_PORT=3306
    DB_DATABASE=laravel_db
    DB_USERNAME=root

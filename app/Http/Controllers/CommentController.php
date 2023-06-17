@@ -20,14 +20,14 @@ class CommentController extends Controller
     {
         $comments = $this->commentService->getAll();
 
-        return view('', compact('comments'));
+        return view('welcome', compact('comments'));
     }
 
     public function show($id)
     {
         $comment = $this->commentService->getOne($id);
 
-        return view('', compact('comment'));
+        return view('welcome', compact('comment'));
     }
 
     public function store(StoreRequest $request)
