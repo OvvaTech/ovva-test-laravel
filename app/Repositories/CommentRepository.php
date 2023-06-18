@@ -40,7 +40,7 @@ class CommentRepository
     {
         $comment->update($request);
 
-        $comment->fresh();
+//        $comment->fresh();
     }
 
     public function delete($comment)

@@ -36,7 +36,7 @@ class PostRepository
     {
         $post->update($request);
 
-        $post->fresh();
+//        $post->fresh();
     }
 
     public function delete($post)
