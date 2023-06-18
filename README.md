@@ -40,7 +40,12 @@
    http://localhost:8098/
    http://127.0.0.1:8098/
    ```
-7. You can connect to the database locally at:
+7. The documentation is available at:
+   ```bash
+   http://localhost:8098/documentaion/api
+   http://127.0.0.1:8098//documentaion/api
+   ```
+8. You can connect to the database locally at:
    ```bash
    127.0.0.1:33061
    ```
