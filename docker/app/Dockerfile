@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
       docker-php-ext-install gd && \
       docker-php-ext-install zip && \
       apt-get clean && \
-      RUN usermod -u 1000 www-data && \
+      usermod -u 1000 www-data && \
       rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY ./docker/app/php.ini /usr/local/etc/php/conf.d/php.ini
