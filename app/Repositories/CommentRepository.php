@@ -28,15 +28,23 @@ class CommentRepository
     public function create($request)
     {
         if (Post::find($request->post_id)) {
-            Comment::create($request);
+            Comment::create([
+                'post_id' => $request->post_id,
+                'author' => $request->author,
+                'text' => $request->text
+            ]);
         }
     }
 
     public function update($request, $comment)
     {
-        $comment->update($request);
+        $comment = Comment::find($comment->id);
 
-//        $comment->fresh();
+        $comment->post_id = $request->post_id;
+        $comment->author = $request->author;
+        $comment->text = $request->text;
+
+        $comment->save();
     }
 
     public function delete($comment)

@@ -26,14 +26,21 @@ class PostRepository
 
     public function create($request)
     {
-        Post::create($request);
+        Post::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'image' => $request->image
+        ]);
     }
 
     public function update($request, $post)
     {
-        $post->update($request);
+        $post = Post::find($post->id);
 
-//        $post->fresh();
+        $post->title = $request->title;
+        $post->content = $request->content;
+
+        $post->save();
     }
 
     public function delete($post)
