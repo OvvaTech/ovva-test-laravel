@@ -27,6 +27,7 @@
    ```bash
    composer install
    php artisan key:generate
+   php artisan storage:link
    php artisan migrate
    ```
 5. Go to the npm container and run:
