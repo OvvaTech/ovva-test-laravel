@@ -51,7 +51,7 @@
    ```
 9. If Laravel writes to you that you have permission problems, go to the app container and run:
    ```bash
-   chmod -R 777
+   chmod -R 777 storage
    ```
 
 ## License
