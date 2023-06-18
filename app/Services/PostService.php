@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\PostRepository;
+use Illuminate\Support\Facades\Storage;
 
 class PostService
 {
@@ -33,11 +34,27 @@ class PostService
 
     public function create($request)
     {
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagePath = $image->store('images', 'public');
+            $request['image'] = $imagePath;
+        }
+
         $this->postRepository->create($request);
     }
 
     public function update($request, $post)
     {
+        if ($request->hasFile('image')) {
+            if ($post->image) {
+                Storage::disk('public')->delete($post->image);
+            }
+
+            $image = $request->file('image');
+            $imagePath = $image->store('images', 'public');
+            $request['image'] = $imagePath;
+        }
+
         $this->postRepository->update($request, $post);
     }
 

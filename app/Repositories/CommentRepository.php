@@ -28,11 +28,7 @@ class CommentRepository
     public function create($request)
     {
         if (Post::find($request->post_id)) {
-            Comment::create([
-                'post_id' => $request->post_id,
-                'author' => $request->author,
-                'text' => $request->text
-            ]);
+            Comment::create($request);
         }
     }
 

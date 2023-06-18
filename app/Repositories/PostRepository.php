@@ -26,10 +26,7 @@ class PostRepository
 
     public function create($request)
     {
-        Post::create([
-            'title' => $request->title,
-            'content' => $request->content
-        ]);
+        Post::create($request);
     }
 
     public function update($request, $post)
