@@ -12,6 +12,13 @@ use Illuminate\Routing\Controller;
  * @OA\PathItem(
  *     path="/api/"
  * )
+ * @OA\Components(
+ *     @OA\SecurityScheme(
+ *         securityScheme="bearerAuth",
+ *         type="http",
+ *         scheme="bearer"
+ *     )
+ * )
  */
 class SwaggerController extends Controller
 {

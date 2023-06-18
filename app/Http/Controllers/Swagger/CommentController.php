@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
  *     path="/api/comments",
  *     summary="Get all comments",
  *     tags={"Comment"},
+ *     security={{ "bearerAuth": {} }},
  *     @OA\Response(
  *         response=200,
  *         description="OK",
@@ -32,6 +33,7 @@ use Illuminate\Routing\Controller;
  *     path="/api/comments/{comment}",
  *     summary="Get one comment",
  *     tags={"Comment"},
+ *     security={{ "bearerAuth": {} }},
  *     @OA\Parameter(
  *         description="Comment ID",
  *         in="path",
@@ -59,6 +61,7 @@ use Illuminate\Routing\Controller;
  *     path="/api/comments",
  *     summary="Create comment",
  *     tags={"Comment"},
+ *     security={{ "bearerAuth": {} }},
  *     @OA\RequestBody(
  *         @OA\JsonContent(
  *             allOf={
@@ -80,6 +83,7 @@ use Illuminate\Routing\Controller;
  *     path="/api/comments/{comment}",
  *     summary="Update comment",
  *     tags={"Comment"},
+ *     security={{ "bearerAuth": {} }},
  *     @OA\Parameter(
  *         description="Comment ID",
  *         in="path",
@@ -109,6 +113,7 @@ use Illuminate\Routing\Controller;
  *     path="/api/comments/{comment}",
  *     summary="Delete comment",
  *     tags={"Comment"},
+ *     security={{ "bearerAuth": {} }},
  *     @OA\Parameter(
  *         description="Comment ID",
  *         in="path",

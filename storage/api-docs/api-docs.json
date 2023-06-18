@@ -6,6 +6,126 @@
     },
     "paths": {
         "/api/": {},
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register Account",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some username"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "someEmail@gmail.com"
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "example": "1a3t5u7p"
+                                            },
+                                            "password_confirmation": {
+                                                "type": "string",
+                                                "example": "1a3t5u7p"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Log In",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "email": {
+                                                "type": "string",
+                                                "example": "someEmail@gmail.com"
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "example": "1a3t5u7p"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "access_token": {
+                                                    "type": "string",
+                                                    "example": "d520bcb82824a2638d7d63227d12daa51fde616da52be55af248d6b683009821"
+                                                },
+                                                "token_type": {
+                                                    "type": "string",
+                                                    "example": "Bearer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Log Out",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
+            }
+        },
         "/api/comments": {
             "get": {
                 "tags": [
@@ -66,7 +186,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -104,7 +229,12 @@
                     "200": {
                         "description": "OK"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
             }
         },
         "/api/comments/{comment}": {
@@ -164,7 +294,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -184,7 +319,12 @@
                     "200": {
                         "description": "OK"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -235,7 +375,12 @@
                     "200": {
                         "description": "OK"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
             }
         },
         "/api/posts": {
@@ -298,7 +443,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -336,7 +486,12 @@
                     "200": {
                         "description": "OK"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
             }
         },
         "/api/posts/{post}": {
@@ -396,7 +551,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -416,7 +576,12 @@
                     "200": {
                         "description": "OK"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -467,7 +632,20 @@
                     "200": {
                         "description": "OK"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "authToken": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "authToken": {
+                "type": "http",
+                "scheme": "bearer"
             }
         }
     }
