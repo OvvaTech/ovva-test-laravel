@@ -49,6 +49,10 @@
    ```bash
    127.0.0.1:33061
    ```
+9. If Laravel writes to you that you have permission problems, go to the app container and run:
+   ```bash
+   chmod -R 777
+   ```
 
 ## License
 

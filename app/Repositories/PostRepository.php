@@ -17,7 +17,7 @@ class PostRepository
 
     public function getOne($post)
     {
-        $post = Post::find($post);
+        $post = Post::find($post->id);
 
         return response()->json([
             'post' => $post

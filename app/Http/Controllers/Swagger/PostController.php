@@ -25,7 +25,15 @@ use Illuminate\Routing\Controller;
  *     path="/api/posts",
  *     summary="Get one post",
  *     tags={"Post"},
- *     @OA\RequestBody(),
+ *     @OA\RequestBody(
+ *         @OA\JsonContent(
+ *             allOF={
+ *                 @OA\Schema(
+ *                     @OA\Property(property="id", type="integer", example=1),
+ *                 )
+ *             }
+ *         )
+ *     ),
  *     @OA\Response(
  *         response=200,
  *         description="OK",
@@ -35,7 +43,7 @@ use Illuminate\Routing\Controller;
  *             @OA\Property(property="content", type="string", example="Some content"),
  *             @OA\Property(property="created_at", type="timestamp", example="2023-06-17T18:31:55.000000Z"),
  *             @OA\Property(property="updated_at", type="timestamp", example="2023-06-17T18:31:55.000000Z"),
- *             @OA\Property(property="image", type="image", example="image.png"),
+ *             @OA\Property(property="image", type="image", example="image1.png"),
  *         ),
  *     ),
  * ),
