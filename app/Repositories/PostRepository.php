@@ -45,6 +45,6 @@ class PostRepository
 
     public function delete($post)
     {
-        $post->delete();
+        $post->delete($post->id);
     }
 }

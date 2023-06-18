@@ -49,6 +49,6 @@ class CommentRepository
 
     public function delete($comment)
     {
-        $comment->delete();
+        $comment->delete($comment->id);
     }
 }
