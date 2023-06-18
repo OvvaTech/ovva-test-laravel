@@ -23,7 +23,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/logout', 'logout')->middleware('auth:sanctum')->name('auth.logout');
 });
 
-// API Routes
+// API Resource Routes
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResources([
         'posts' => PostController::class,
