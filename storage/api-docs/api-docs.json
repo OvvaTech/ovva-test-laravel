@@ -121,7 +121,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             }
@@ -189,7 +189,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             },
@@ -232,7 +232,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             }
@@ -297,7 +297,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             },
@@ -322,7 +322,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             },
@@ -378,7 +378,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             }
@@ -446,7 +446,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             },
@@ -489,7 +489,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             }
@@ -554,7 +554,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             },
@@ -579,7 +579,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             },
@@ -635,7 +635,7 @@
                 },
                 "security": [
                     {
-                        "authToken": []
+                        "bearerAuth": []
                     }
                 ]
             }
@@ -643,7 +643,7 @@
     },
     "components": {
         "securitySchemes": {
-            "authToken": {
+            "bearerAuth": {
                 "type": "http",
                 "scheme": "bearer"
             }
