@@ -10,7 +10,7 @@ class PostRepository
     {
         $posts = Post::paginate(10);
 
-        response()->json([
+        return response()->json([
             'posts' => $posts
         ]);
     }
