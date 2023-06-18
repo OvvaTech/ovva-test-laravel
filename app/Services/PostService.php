@@ -19,7 +19,7 @@ class PostService
 
         return response()->json([
             'posts' => $posts
-        ])->resolve();
+        ]);
     }
 
     public function getOne($post)
@@ -28,7 +28,7 @@ class PostService
 
         return response()->json([
             'post' => $post
-        ])->resolve();
+        ]);
     }
 
     public function create($request)

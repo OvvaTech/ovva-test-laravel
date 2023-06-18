@@ -37,14 +37,18 @@ class PostController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $request->validated();
+        if (!($request->validated())) {
+            return response()->json(['message' => 'Validation error']);
+        }
 
         $this->postService->create($request);
     }
 
     public function update(UpdateRequest $request, Post $post)
     {
-        $request->validated();
+        if (!($request->validated())) {
+            return response()->json(['message' => 'Validation error']);
+        }
 
         $this->postService->update($request, $post);
     }

@@ -3,7 +3,6 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Auth Routes
-Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
-Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
-Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum')->name('auth.logout');
+Route::controller(AuthController::class)->group(function () {
+    Route::post('/register', 'register')->name('auth.register');
+    Route::post('/login', 'login')->name('auth.login');
+    Route::post('/logout', 'logout')->middleware('auth:sanctum')->name('auth.logout');
+});
 
 // API Routes
 Route::middleware('auth:sanctum')->group(function () {

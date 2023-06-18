@@ -37,14 +37,18 @@ class CommentController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $request->validated();
+        if (!($request->validated())) {
+            return response()->json(['message' => 'Validation error']);
+        }
 
         $this->commentService->create($request);
     }
 
     public function update(UpdateRequest $request, Comment $comment)
     {
-        $request->validated();
+        if (!($request->validated())) {
+            return response()->json(['message' => 'Validation error']);
+        }
 
         $this->commentService->update($request, $comment);
     }

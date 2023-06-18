@@ -16,9 +16,9 @@ class CommentRepository
         ]);
     }
 
-    public function getOne($id)
+    public function getOne($comment)
     {
-        $comment = Comment::find($id);
+        $comment = Comment::find($comment);
 
         return response()->json([
             'comment' => $comment

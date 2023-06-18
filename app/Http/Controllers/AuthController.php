@@ -6,7 +6,6 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Services\AuthService;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -19,15 +18,20 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        $request->validated();
+        if (!($request->validated())) {
+            return response()->json(['message' => 'Validation error']);
+        }
 
         $this->authService->register($request);
     }
 
     public function login(LoginRequest $request)
     {
-        $credentials = $request->validated();
+        if (!($request->validated())) {
+            return response()->json(['message' => 'Validation error']);
+        }
 
+        $credentials = $request;
         $data = $this->authService->login($credentials);
 
         return response()->json([
