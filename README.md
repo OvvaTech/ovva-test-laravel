@@ -42,8 +42,8 @@
    ```
 7. The documentation is available at:
    ```bash
-   http://localhost:8098/documentaion/api
-   http://127.0.0.1:8098//documentaion/api
+   http://localhost:8098/api/documentaion
+   http://127.0.0.1:8098/api/documentaion
    ```
 8. You can connect to the database locally at:
    ```bash
