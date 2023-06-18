@@ -22,7 +22,7 @@ class PostController extends Controller
         $posts = $this->postService->getAll();
 
         return response()->json([
-           'posts' => $posts
+           'posts' => $posts,
         ]);
     }
 
@@ -31,7 +31,7 @@ class PostController extends Controller
         $post = $this->postService->getOne($post);
 
         return response()->json([
-           'post' => $post
+           'post' => $post,
         ]);
     }
 

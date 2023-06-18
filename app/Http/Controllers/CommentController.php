@@ -22,7 +22,7 @@ class CommentController extends Controller
         $comments = $this->commentService->getAll();
 
         return response()->json([
-           'comments' => $comments
+           'comments' => $comments,
         ]);
     }
 
@@ -31,7 +31,7 @@ class CommentController extends Controller
         $comment = $this->commentService->getOne($comment);
 
         return response()->json([
-           'comment' => $comment
+           'comment' => $comment,
         ]);
     }
 

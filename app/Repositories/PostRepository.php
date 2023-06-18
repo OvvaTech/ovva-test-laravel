@@ -11,7 +11,7 @@ class PostRepository
         $posts = Post::paginate(10);
 
         return response()->json([
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 
@@ -20,7 +20,7 @@ class PostRepository
         $post = Post::find($post->id);
 
         return response()->json([
-            'post' => $post
+            'post' => $post,
         ]);
     }
 
@@ -29,7 +29,7 @@ class PostRepository
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
-            'image' => $request->image
+            'image' => $request->image,
         ]);
     }
 

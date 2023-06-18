@@ -19,7 +19,7 @@ class PostService
         $posts = $this->postRepository->getAll();
 
         return response()->json([
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 
@@ -28,7 +28,7 @@ class PostService
         $post = $this->postRepository->getOne($post);
 
         return response()->json([
-            'post' => $post
+            'post' => $post,
         ]);
     }
 

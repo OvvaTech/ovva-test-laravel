@@ -6,13 +6,12 @@
     },
     "paths": {
         "/api/": {},
-        "/api/posts": {
-            "post": {
+        "/api/comments": {
+            "get": {
                 "tags": [
-                    "Post"
+                    "Comment"
                 ],
-                "summary": "Get all posts",
-                "requestBody": {},
+                "summary": "Get all comments",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -20,31 +19,453 @@
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "id": {
-                                            "type": "integer",
-                                            "example": 1
-                                        },
-                                        "title": {
-                                            "type": "string",
-                                            "example": "Some title"
-                                        },
-                                        "content": {
-                                            "type": "string",
-                                            "example": "Some content"
-                                        },
-                                        "created_at": {
-                                            "type": "timestamp",
-                                            "example": "2023-06-17T18:31:55.000000Z"
-                                        },
-                                        "updated_at": {
-                                            "type": "timestamp",
-                                            "example": "2023-06-17T18:31:55.000000Z"
+                                        "comments": {
+                                            "properties": {
+                                                "current_page": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "post_id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "author": {
+                                                                "type": "string",
+                                                                "example": "Some author"
+                                                            },
+                                                            "text": {
+                                                                "type": "string",
+                                                                "example": "Some text"
+                                                            },
+                                                            "created_at": {
+                                                                "type": "timestamp",
+                                                                "example": "2023-06-17T18:31:55.000000Z"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "timestamp",
+                                                                "example": "2023-06-17T18:31:55.000000Z"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Create comment",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "post_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "author": {
+                                                "type": "string",
+                                                "example": "Some author"
+                                            },
+                                            "text": {
+                                                "type": "string",
+                                                "example": "Some text"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/comments/{comment}": {
+            "get": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Get one comment",
+                "parameters": [
+                    {
+                        "name": "comment",
+                        "in": "path",
+                        "description": "Comment ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "comment": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "post_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "author": {
+                                                    "type": "string",
+                                                    "example": "Some author"
+                                                },
+                                                "text": {
+                                                    "type": "string",
+                                                    "example": "Some text"
+                                                },
+                                                "created_at": {
+                                                    "type": "timestamp",
+                                                    "example": "2023-06-17T18:31:55.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "timestamp",
+                                                    "example": "2023-06-17T18:31:55.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Delete comment",
+                "parameters": [
+                    {
+                        "name": "comment",
+                        "in": "path",
+                        "description": "Comment ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Update comment",
+                "parameters": [
+                    {
+                        "name": "comment",
+                        "in": "path",
+                        "description": "Comment ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "post_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "author": {
+                                                "type": "string",
+                                                "example": "Some author"
+                                            },
+                                            "text": {
+                                                "type": "string",
+                                                "example": "Some text"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/posts": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Get all posts",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "posts": {
+                                            "properties": {
+                                                "current_page": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "title": {
+                                                                "type": "string",
+                                                                "example": "Some title"
+                                                            },
+                                                            "content": {
+                                                                "type": "string",
+                                                                "example": "Some content"
+                                                            },
+                                                            "created_at": {
+                                                                "type": "timestamp",
+                                                                "example": "2023-06-17T18:31:55.000000Z"
+                                                            },
+                                                            "updated_at": {
+                                                                "type": "timestamp",
+                                                                "example": "2023-06-17T18:31:55.000000Z"
+                                                            },
+                                                            "image": {
+                                                                "type": "string",
+                                                                "example": "public/images/image1.png"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Create post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "title": {
+                                                "type": "string",
+                                                "example": "Some title"
+                                            },
+                                            "content": {
+                                                "type": "string",
+                                                "example": "Some content"
+                                            },
+                                            "image": {
+                                                "type": "image",
+                                                "example": "image1.png"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/posts/{post}": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Get one post",
+                "parameters": [
+                    {
+                        "name": "post",
+                        "in": "path",
+                        "description": "Post ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "post": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "title": {
+                                                    "type": "string",
+                                                    "example": "Some title"
+                                                },
+                                                "content": {
+                                                    "type": "string",
+                                                    "example": "Some content"
+                                                },
+                                                "created_at": {
+                                                    "type": "timestamp",
+                                                    "example": "2023-06-17T18:31:55.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "timestamp",
+                                                    "example": "2023-06-17T18:31:55.000000Z"
+                                                },
+                                                "image": {
+                                                    "type": "string",
+                                                    "example": "public/images/image1.png"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Delete post",
+                "parameters": [
+                    {
+                        "name": "post",
+                        "in": "path",
+                        "description": "Post ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Update post",
+                "parameters": [
+                    {
+                        "name": "post",
+                        "in": "path",
+                        "description": "Post ID",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "title": {
+                                                "type": "string",
+                                                "example": "Some title"
+                                            },
+                                            "content": {
+                                                "type": "string",
+                                                "example": "Some content"
+                                            },
+                                            "image": {
+                                                "type": "image",
+                                                "example": "image1.png"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
                     }
                 }
             }

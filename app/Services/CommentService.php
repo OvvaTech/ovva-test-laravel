@@ -18,7 +18,7 @@ class CommentService
         $comments = $this->commentRepository->getAll();
 
         return response()->json([
-            'comments' => $comments
+            'comments' => $comments,
         ]);
     }
 
@@ -27,7 +27,7 @@ class CommentService
         $comment = $this->commentRepository->getOne($comment);
 
         return response()->json([
-            'comment' => $comment
+            'comment' => $comment,
         ]);
     }
 

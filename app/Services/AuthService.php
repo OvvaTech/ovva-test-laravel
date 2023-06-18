@@ -31,7 +31,7 @@ class AuthService
             ]);
         }
 
-        return response()->json(['message' => 'Unauthorized'])();
+        return response()->json(['message' => 'Unauthorized']);
     }
 
     public function logout()

@@ -35,7 +35,7 @@ class AuthController extends Controller
         $data = $this->authService->login($credentials);
 
         return response()->json([
-            'data' => $data
+            'data' => $data,
         ]);
     }
 

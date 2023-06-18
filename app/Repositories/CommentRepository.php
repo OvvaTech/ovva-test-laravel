@@ -12,7 +12,7 @@ class CommentRepository
         $comments = Comment::all();
 
         return response()->json([
-            'comments' => $comments
+            'comments' => $comments,
         ]);
     }
 
@@ -21,7 +21,7 @@ class CommentRepository
         $comment = Comment::find($comment->id);
 
         return response()->json([
-            'comment' => $comment
+            'comment' => $comment,
         ]);
     }
 
@@ -31,7 +31,7 @@ class CommentRepository
             Comment::create([
                 'post_id' => $request->post_id,
                 'author' => $request->author,
-                'text' => $request->text
+                'text' => $request->text,
             ]);
         }
     }
