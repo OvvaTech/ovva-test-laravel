@@ -19,6 +19,7 @@ use Illuminate\Routing\Controller;
  *             @OA\Property(property="content", type="string", example="Some content"),
  *             @OA\Property(property="created_at", type="timestamp", example="2023-06-17T18:31:55.000000Z"),
  *             @OA\Property(property="updated_at", type="timestamp", example="2023-06-17T18:31:55.000000Z"),
+ *             @OA\Property(property="image", type="image", example="someImage.png"),
  *         ),
  *     ),
  * ),
