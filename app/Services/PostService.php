@@ -36,7 +36,7 @@ class PostService
     {
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imagePath = $image->store('public/images');
+            $imagePath = $image->store('images', 'public');
             $request['image'] = $imagePath;
         }
 
@@ -51,7 +51,7 @@ class PostService
             }
 
             $image = $request->file('image');
-            $imagePath = $image->store('public/images');
+            $imagePath = $image->store('images', 'public');
             $request['image'] = $imagePath;
         }
 
