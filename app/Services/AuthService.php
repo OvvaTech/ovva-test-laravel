@@ -21,7 +21,7 @@ class AuthService
 
     public function login($credentials)
     {
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials->all())) {
             $user = Auth::user();
             $token = $user->createToken('authToken')->plainTextToken;
 

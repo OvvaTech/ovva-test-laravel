@@ -90,7 +90,7 @@
                                             "properties": {
                                                 "access_token": {
                                                     "type": "string",
-                                                    "example": "d520bcb82824a2638d7d63227d12daa51fde616da52be55af248d6b683009821"
+                                                    "example": "id|d520bcb82824a2638d7d63227d12daa51fde616da52be55af248d6b683009821"
                                                 },
                                                 "token_type": {
                                                     "type": "string",
@@ -118,12 +118,7 @@
                     "200": {
                         "description": "OK"
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/comments": {
@@ -186,12 +181,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             },
             "post": {
                 "tags": [
@@ -229,12 +219,7 @@
                     "200": {
                         "description": "OK"
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/comments/{comment}": {
@@ -294,12 +279,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             },
             "delete": {
                 "tags": [
@@ -319,12 +299,7 @@
                     "200": {
                         "description": "OK"
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             },
             "patch": {
                 "tags": [
@@ -375,12 +350,7 @@
                     "200": {
                         "description": "OK"
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/posts": {
@@ -443,12 +413,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             },
             "post": {
                 "tags": [
@@ -486,12 +451,7 @@
                     "200": {
                         "description": "OK"
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             }
         },
         "/api/posts/{post}": {
@@ -551,12 +511,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             },
             "delete": {
                 "tags": [
@@ -576,12 +531,7 @@
                     "200": {
                         "description": "OK"
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
+                }
             },
             "patch": {
                 "tags": [
@@ -632,20 +582,7 @@
                     "200": {
                         "description": "OK"
                     }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        }
-    },
-    "components": {
-        "securitySchemes": {
-            "bearerAuth": {
-                "type": "http",
-                "scheme": "bearer"
+                }
             }
         }
     }

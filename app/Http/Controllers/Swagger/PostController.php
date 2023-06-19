@@ -9,7 +9,6 @@ use Illuminate\Routing\Controller;
  *     path="/api/posts",
  *     summary="Get all posts",
  *     tags={"Post"},
- *     security={{ "bearerAuth": {} }},
  *     @OA\Response(
  *         response=200,
  *         description="OK",
@@ -33,7 +32,6 @@ use Illuminate\Routing\Controller;
  *     path="/api/posts/{post}",
  *     summary="Get one post",
  *     tags={"Post"},
- *     security={{ "bearerAuth": {} }},
  *     @OA\Parameter(
  *         description="Post ID",
  *         in="path",
@@ -61,7 +59,6 @@ use Illuminate\Routing\Controller;
  *     path="/api/posts",
  *     summary="Create post",
  *     tags={"Post"},
- *     security={{ "bearerAuth": {} }},
  *     @OA\RequestBody(
  *         @OA\JsonContent(
  *             allOf={
@@ -83,7 +80,6 @@ use Illuminate\Routing\Controller;
  *     path="/api/posts/{post}",
  *     summary="Update post",
  *     tags={"Post"},
- *     security={{ "bearerAuth": {} }},
  *     @OA\Parameter(
  *         description="Post ID",
  *         in="path",
@@ -113,7 +109,6 @@ use Illuminate\Routing\Controller;
  *     path="/api/posts/{post}",
  *     summary="Delete post",
  *     tags={"Post"},
- *     security={{ "bearerAuth": {} }},
  *     @OA\Parameter(
  *         description="Post ID",
  *         in="path",
