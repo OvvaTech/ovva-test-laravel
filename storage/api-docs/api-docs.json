@@ -90,7 +90,7 @@
                                             "properties": {
                                                 "access_token": {
                                                     "type": "string",
-                                                    "example": "id|d520bcb82824a2638d7d63227d12daa51fde616da52be55af248d6b683009821"
+                                                    "example": "1|d520bcb82824a2638d7d63227d12daa51fde616da52be55af248d6b683009821"
                                                 },
                                                 "token_type": {
                                                     "type": "string",
@@ -398,7 +398,7 @@
                                                             },
                                                             "image": {
                                                                 "type": "string",
-                                                                "example": "public/images/image1.png"
+                                                                "example": "/tmp/phpSeG13H"
                                                             }
                                                         },
                                                         "type": "object"
@@ -500,7 +500,7 @@
                                                 },
                                                 "image": {
                                                     "type": "string",
-                                                    "example": "public/images/image1.png"
+                                                    "example": "/tmp/phpSeG13H"
                                                 }
                                             },
                                             "type": "object"

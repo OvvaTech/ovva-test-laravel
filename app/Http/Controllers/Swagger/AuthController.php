@@ -46,7 +46,7 @@ use Illuminate\Routing\Controller;
  *         description="OK",
  *         @OA\JsonContent(
  *             @OA\Property(property="data", type="object",
- *                 @OA\Property(property="access_token", type="string", example="id|d520bcb82824a2638d7d63227d12daa51fde616da52be55af248d6b683009821"),
+ *                 @OA\Property(property="access_token", type="string", example="1|d520bcb82824a2638d7d63227d12daa51fde616da52be55af248d6b683009821"),
  *                 @OA\Property(property="token_type", type="string", example="Bearer"),
  *             ),
  *         ),

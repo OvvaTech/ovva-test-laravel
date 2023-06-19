@@ -11,7 +11,7 @@ use Illuminate\Routing\Controller;
  * ),
  * @OA\PathItem(
  *     path="/api/"
- * )
+ * ),
  */
 class SwaggerController extends Controller
 {

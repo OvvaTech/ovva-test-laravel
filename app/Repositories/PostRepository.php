@@ -39,6 +39,7 @@ class PostRepository
 
         $post->title = $request->title;
         $post->content = $request->content;
+        $post->image = $request->image;
 
         $post->save();
     }

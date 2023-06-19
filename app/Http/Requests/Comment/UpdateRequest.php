@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
             'id' => 'required|integer',
             'post_id' => 'required|integer',
             'author' => 'required|string|max:255',
-            'text' => 'required|string|max:255'
+            'text' => 'required|string|max:255',
         ];
     }
 }
