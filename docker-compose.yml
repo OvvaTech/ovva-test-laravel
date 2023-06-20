@@ -9,8 +9,6 @@ services:
         volumes:
             - ./:/var/www/test.api.laravel
             - ./storage:/var/www/html/storage
-        extra_hosts:
-            - host.docker.internal:host-gateway
         depends_on:
             - mysql
         container_name: app
